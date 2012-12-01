@@ -219,6 +219,8 @@ function window3(win) {
 	
 	submit2.addEventListener('click', function(e) {
 		
+		desc1.blur();
+		
 		var strippedPhoneNum = desc1.value.replace(/[^0-9]/g, ''); 
 
 		//alert("SUBMITTED");
