@@ -3,12 +3,12 @@ function ApplicationTabGroup(Window) {
 	var self = Ti.UI.createTabGroup();
 	
 	//create app tabs
-	var win1 = new Window(L('home'),1),
-		win2 = new Window(L('settings'),2);
-		win3 = new Window(L('setup'),3);
+	var win1 = new Window(L('Report Hazard'),1),
+		win2 = new Window(L('Nearby Hazards'),2);
+		win3 = new Window(L('Submit Phone Number'),3);
 	
 	var tab1 = Ti.UI.createTab({
-		title: L('home'),
+		title: L('Submit'),
 		icon: '/images/KS_nav_ui.png',
 		window: win1
 	});
