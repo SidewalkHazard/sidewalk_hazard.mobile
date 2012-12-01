@@ -77,7 +77,7 @@ function window1(winorg) {
 
 	win.add(submit);
 	var cancel = Titanium.UI.createLabel({top : top, left: 150, width: 100, height : 24, text: 'Cancel', backgroundColor: Ti.App.button, 
- 		textAlign: 'center', font : {fontSize : '16', fontWeight : 'bold', fontFamily : 'Arial'}, color: Ti.App.buttoncolor, view: win
+ 		textAlign: 'center', font : {fontSize : '16', fontWeight : 'bold', fontFamily : 'Arial'}, color: Ti.App.buttoncolor
 	});
 	
 	cancel.addEventListener('click', function(e) {
