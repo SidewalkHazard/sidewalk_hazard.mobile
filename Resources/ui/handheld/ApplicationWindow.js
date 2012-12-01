@@ -16,6 +16,8 @@ function ApplicationWindow(title,num) {
 		window1(self);
 	} else if(num == 2) {
 		window2(self);
+	} else if(num == 3) {
+		window3(self);
 	}
 	return self;
 };
@@ -135,7 +137,28 @@ function window1(winorg) {
 	});
 	
 	submit.addEventListener('click', function(e) {
+
 		alert("SUBMITTED");
+		// var url = "https://api.tropo.com/1.0/sessions?action=create&token=18cdf0354dd2a548ae3633c86b397d7bdcdf6ed1e24b14395a39a19088114c869c9146f6f75eb20b0671deef&numberToDial=4043579411&msg=MESSAGE_GOES_HERE";
+		// var client = Ti.Network.createHTTPClient({
+			// // function called when the response data is available
+			// onload : function(e) {
+				// Ti.API.info("Received text: " + this.responseText);
+				// //alert('success');
+			// },
+			// // function called when an error occurs, including a timeout
+			// onerror : function(e) {
+				// Ti.API.debug(e.error);
+				// alert('error');
+			// },
+			// timeout : 5000 // in milliseconds
+		// });
+		// // Prepare the connection.
+		// client.open("GET", url);
+		// // Send the request.
+		// client.send();
+
+		
 	});
 
 	win.add(submit);
@@ -176,6 +199,47 @@ function window2(win) {
 		}
 	}
 	Titanium.Geolocation.getCurrentPosition(createMapLocation);
+
+}
+
+function window3(win) {
+	var top = 40;
+	var desc1 = createTextInput(win, top, 10, 'Your phone number');
+	//desc1.value = '';  // override phone # here for testing
+
+	top = top + 50;
+	var submit2 = Titanium.UI.createLabel({top : top, left: 26, width: 100, height : 24, text: 'Submit', backgroundColor: Ti.App.button, 
+ 		textAlign: 'center', font : {fontSize : '16', fontWeight : 'bold', fontFamily : 'Arial'}, color: Ti.App.buttoncolor
+	});
+	
+	submit2.addEventListener('click', function(e) {
+		
+		var strippedPhoneNum = desc1.value.replace(/[^0-9]/g, ''); 
+
+		//alert("SUBMITTED");
+		// msg_type=sms
+		var url = "https://api.tropo.com/1.0/sessions?action=create&token=18cdf0354dd2a548ae3633c86b397d7bdcdf6ed1e24b14395a39a19088114c869c9146f6f75eb20b0671deef&numberToDial="+strippedPhoneNum+"&msg=THANK_YOU_FOR_REPORTING_A_SIDEWALK_HAZARD.,,YOUR_HELP_IS_APPRECIATED&message_type=CALL";
+		var client = Ti.Network.createHTTPClient({
+			// function called when the response data is available
+			onload : function(e) {
+				Ti.API.info("Received text: " + this.responseText);
+				//alert('success');
+			},
+			// function called when an error occurs, including a timeout
+			onerror : function(e) {
+				Ti.API.debug(e.error);
+				alert('error');
+			},
+			timeout : 5000 // in milliseconds
+		});
+		// Prepare the connection.
+		client.open("GET", url);
+		// Send the request.
+		client.send();
+
+		
+	});
+	win.add(submit2);
 
 }
 module.exports = ApplicationWindow;
