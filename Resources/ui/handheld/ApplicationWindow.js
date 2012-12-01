@@ -95,7 +95,7 @@ function window1(winorg) {
 					var address = place.address;
 					var addressArry = address.split(',');
 					var state = addressArry[(addressArry.length - 3)];
-					var street = place.street + " " + place.streetname;
+					var street = place.street; // + " " + place.streetname;
 					var city = place.city;
 					var zip = place.zipcode;
 					var totaladdr = street + ", " + city + ", " + state + " " + zip;
