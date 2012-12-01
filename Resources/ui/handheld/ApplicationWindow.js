@@ -23,6 +23,8 @@ function ApplicationWindow(title,num) {
 };
 
 function window1(winorg) {
+	Ti.Geolocation.purpose = "Recieve User Location";
+	
 	var win = Ti.UI.createScrollView({
 		top : 0,
 		left : 0,
@@ -52,6 +54,7 @@ function window1(winorg) {
 
 	top = top + 30;
 	maptop = top;
+	Ti.Geolocation.purpose = "Recieve User Location";
 	Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
 	Titanium.Geolocation.distanceFilter = 0;
 
@@ -67,6 +70,7 @@ function window1(winorg) {
 			createLocation(win,maptop, 0, 200, e.coords.latitude, e.coords.longitude);
 		}
 	}
+	
 	Titanium.Geolocation.getCurrentPosition(createMapLocation);
 
 	top = top + 210;
