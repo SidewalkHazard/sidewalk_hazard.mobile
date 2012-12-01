@@ -190,6 +190,7 @@ function window2(win) {
 
 	function createMapLocation(e) {
 		if (!e.success || e.error) {
+
 //			createLocation(win,0, 0, 600, Ti.App.currentlat, Ti.App.currentlng);
 		}
 		else {
@@ -218,12 +219,12 @@ function window3(win) {
 
 		//alert("SUBMITTED");
 		// msg_type=sms
-		var url = "https://api.tropo.com/1.0/sessions?action=create&token=18cdf0354dd2a548ae3633c86b397d7bdcdf6ed1e24b14395a39a19088114c869c9146f6f75eb20b0671deef&numberToDial="+strippedPhoneNum+"&msg=THANK_YOU_FOR_REPORTING_A_SIDEWALK_HAZARD.,,YOUR_HELP_IS_APPRECIATED&message_type=CALL";
+		var url = "https://api.tropo.com/1.0/sessions?action=create&token=18cdf0354dd2a548ae3633c86b397d7bdcdf6ed1e24b14395a39a19088114c869c9146f6f75eb20b0671deef&numberToDial="+strippedPhoneNum+"&msg=THANK_YOU_FOR_REPORTING_A_SIDEWALK_HAZARD.,,YOUR_HELP_IS_GREATLY_APPRECIATED.,,PLEASE_PRESS_ONE_TO_CONFIRM_THAT_YOU_INITIATED_THIS_REQUEST&message_type=CALL";
 		var client = Ti.Network.createHTTPClient({
 			// function called when the response data is available
 			onload : function(e) {
 				Ti.API.info("Received text: " + this.responseText);
-				//alert('success');
+				alert('Thank you.  You will receive a confirmation call shortly.');
 			},
 			// function called when an error occurs, including a timeout
 			onerror : function(e) {

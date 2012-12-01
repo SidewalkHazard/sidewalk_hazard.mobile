@@ -15,14 +15,14 @@ function ApplicationTabGroup(Window) {
 	win1.containingTab = tab1;
 	
 	var tab2 = Ti.UI.createTab({
-		title: L('settings'),
-		icon: '/images/KS_nav_views.png',
+		title: L('Nearby'),
+		icon: '/images/icons/map.png',
 		window: win2
 	});
 	win2.containingTab = tab2;
 	
 	var tab3 = Ti.UI.createTab({
-		title: L('settings'),
+		title: L('Settings'),
 		icon: '/images/KS_nav_views.png',
 		window: win3
 	});
