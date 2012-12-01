@@ -177,12 +177,13 @@ function createTextInput(win,x,y,hintText) {
 		top : x,
 		left : y,
 		height : 'auto',
-		width : '90%',
+		right: 10,
 		hintText : hintText,
 		borderStyle : Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 		returnKeyType : Ti.UI.RETURNKEY_DONE
 	});
 	win.add(label);
+	return(label);
 }
 
 function deleteImages(view) {
